@@ -82,7 +82,8 @@ if submitted:
     st.session_state.base_time = base_time
 
 if st.session_state.show_map:
-    geolocator = Nominatim(user_agent="route_app")
+    geolocator = Nominatim(user_agent="shivamkillarikar007@gmail.com")
+
 
     try:
         start_loc = geolocator.geocode(st.session_state.start)
