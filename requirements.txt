@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+scikit-learn
+joblib
+folium
+geopy
+requests
+streamlit-folium
+google-generativeai
