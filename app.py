@@ -14,7 +14,7 @@ WEATHER_API_KEY = "1afdd88fb14c4b25e2e9192d7eabbba9"  # Replace with your OpenWe
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 # --- Load Data ---
-df = pd.read_csv("india.csv")
+df = pd.read_csv("india (1).csv")
 
 df['Weather_Impact'] = 1.0
 df['Adjusted_Time'] = df['Time_Minutes'] * df['Weather_Impact']
