@@ -1,0 +1,7 @@
+flask
+joblib
+pandas
+numpy
+requests
+geopy
+google-generativeai
