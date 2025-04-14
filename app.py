@@ -55,7 +55,9 @@ def get_ai_recommendations(temp, wind_speed, rain):
     try:
         model = genai.GenerativeModel(model_name="models/gemini-1.5-flash-latest")
         response = model.generate_content(prompt)
-        return response.text.strip().split("\n")
+        tips = [tip.strip("•-–1234567890. ") for tip in response.text.strip().split("\n") if tip.strip()]
+        return tips[:3]  # Return only the first 3 cleaned tips
+        # return response.text.strip().split("\n")
     except Exception as e:
         st.warning("⚠️ Gemini API Error. Showing default tips.")
         return ["Stay safe on the road! 🚗", "Watch for changing weather! 🌦️", "Keep emergency kit handy! 🧰"]
@@ -97,7 +99,7 @@ def predict_best_route(start, end, traffic, base_time):
 
 # --- Streamlit UI ---
 
-st.title("🚗 Smart Travel Time Predictor with Weather & AI Tips")
+st.title("🚗 Trackease: Simplifying Travel by Finding You the Best Routes")
 st.markdown("Get weather-aware, AI-enhanced travel estimates for routes across India.")
 
 start = st.selectbox("📍 Start Location", sorted(df['Start'].unique()))
